@@ -7,7 +7,6 @@ class Homescreen extends StatefulWidget {
 }
 
 class _HomescreenState extends State<Homescreen> {
-
   TextEditingController searchController = TextEditingController();
 
   var homecart = [
@@ -21,16 +20,12 @@ class _HomescreenState extends State<Homescreen> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-
       body: Column(
         children: [
-
           /// HEADER
           Stack(
             children: [
-
               Container(
                 height: 190,
                 width: double.infinity,
@@ -39,7 +34,6 @@ class _HomescreenState extends State<Homescreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-
                     SizedBox(height: 40),
 
                     Padding(
@@ -68,7 +62,6 @@ class _HomescreenState extends State<Homescreen> {
                       padding: EdgeInsets.only(left: 20),
                       child: Row(
                         children: [
-
                           UiHelper.customeText(
                             text: "HOME ",
                             color: Colors.white,
@@ -82,11 +75,9 @@ class _HomescreenState extends State<Homescreen> {
                             fontweght: FontWeight.bold,
                             fontSize: 14,
                           ),
-
                         ],
                       ),
                     ),
-
                   ],
                 ),
               ),
@@ -97,7 +88,7 @@ class _HomescreenState extends State<Homescreen> {
                 child: CircleAvatar(
                   radius: 15,
                   backgroundColor: Colors.black,
-                  child: Icon(Icons.person,color: Colors.white,size: 20),
+                  child: Icon(Icons.person, color: Colors.white, size: 20),
                 ),
               ),
 
@@ -123,8 +114,7 @@ class _HomescreenState extends State<Homescreen> {
                     ),
                   ),
                 ),
-              )
-
+              ),
             ],
           ),
 
@@ -136,14 +126,12 @@ class _HomescreenState extends State<Homescreen> {
 
             child: Column(
               children: [
-
                 SizedBox(height: 10),
 
                 /// SALE TITLE
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-
                     UiHelper.customeImage(img: "image60.png"),
 
                     UiHelper.customeImage(img: "image55.png"),
@@ -159,63 +147,58 @@ class _HomescreenState extends State<Homescreen> {
                     UiHelper.customeImage(img: "image55.png"),
 
                     UiHelper.customeImage(img: "image60.png"),
-
                   ],
                 ),
 
                 SizedBox(height: 15),
 
-                /// HORIZONTAL LIST
-               SizedBox(
-  height: 120,
-  child: ListView.builder(
-    scrollDirection: Axis.horizontal,
-    itemCount: homecart.length,
-    itemBuilder: (context, index) {
-      return Container(
-        decoration: BoxDecoration(
-          color: Color(0XFFEAD3D3),
-          borderRadius: BorderRadius.circular(11),
-        ),
-        width: 90,
-        margin: EdgeInsets.symmetric(horizontal: 6),
+              
+                SizedBox(
+                  height: 120,
+                  child: ListView.builder(
+                    scrollDirection: Axis.horizontal,
+                    itemCount: homecart.length,
+                    itemBuilder: (context, index) {
+                      return Container(
+                        decoration: BoxDecoration(
+                          color: Color(0XFFEAD3D3),
+                          borderRadius: BorderRadius.circular(11),
+                        ),
+                        width: 90,
+                        margin: EdgeInsets.symmetric(horizontal: 6),
 
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center, // 👈 add
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment:
+                              CrossAxisAlignment.center,
 
-          children: [
+                          children: [
+                            Text(
+                              homecart[index]['title'].toString(),
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 10,
+                                fontWeight: FontWeight.w600,
+                              ),
+                            ),
 
-            Text(
-              homecart[index]['title'].toString(),
-              textAlign: TextAlign.center, 
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 10,
-                fontWeight: FontWeight.w600,
-              ),
-            ),
+                            SizedBox(height: 5),
 
-            SizedBox(height: 5),
-
-            UiHelper.customeImage(
-              img: homecart[index]['img'].toString(),
-            ),
-
-          ],
-        ),
-      );
-    },
-  ),
-)
-
+                            UiHelper.customeImage(
+                              img: homecart[index]['img'].toString(),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  ),
+                ),
               ],
             ),
           ),
 
-
-           SizedBox(height: 10,),
-           
+          SizedBox(height: 10),
         ],
       ),
     );
